@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>TDW Human Interface</title>
+        <script>
+            let obs = $OBSERVATION;
+            let img_size = $SCREEN_SIZE;
+        </script>
+        <script src="/js/main.js?v=2023.10.10"></script>
+    </head>
+    <body style="text-align: center;">
+        <img src="/first_person_img" style="height: 512px; margin-bottom: 5px;" id="camera">
+        <br>
+        <button class="btn-large" onclick="act('move_forward')">Forward</button>
+        <button class="btn-large" onclick="act('turn_left')">Turn Left</button>
+        <button class="btn-large" onclick="act('turn_right')">Turn Right</button>
+        <button class="btn-large" onclick="act('put_in')">Put In</button>
+        <button class="btn-large" onclick="act('drop', {'arm': 'left'})">Drop Left</button>
+        <button class="btn-large" onclick="act('drop', {'arm': 'right'})">Drop Right</button>
+        <!-- <button onclick="act('turn_right')">Turn Right</button> -->
+        <br>
+        <table style="margin: auto; width: 512px; text-align: center;">
+            <td style="width: 80%;">
+                <textarea style="width: 100%; height: 50px; font-size: 14px;" id="human_message"></textarea>
+            </td><td>
+                <button class="btn-large" onclick="act('send_message',
+                    {'message': document.getElementById('human_message').value})">Send Message</button>
+            </td>
+        </table>
+        <br>
+        Left hand object: <span id="left_hand_object"></span>
+        <br>
+        Right hand object: <span id="right_hand_object"></span>
+        <br>
+        Oppo left hand object: <span id="oppo_left_hand_object"></span>
+        <br>
+        Oppo right hand object: <span id="oppo_right_hand_object"></span>
+        <br>
+        Self message: <span id="self_message"></span>
+        <br>
+        Oppo message: <span id="oppo_message"></span>
+    </body>
+    <style>
+        .btn-large {
+            font-size: 16px;
+            padding: 5px;
+            margin: 5px;
+        }
+        .btn {
+            font-size: 14px;
+            padding: 3px;
+        }
+        .table-bordered {
+            margin: 5px auto;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        .table-bordered td, .table-bordered th {
+            border: 1px solid black;
+            padding: 2px 10px;
+        }
+    </style>
+</html>
